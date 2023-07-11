@@ -1,0 +1,42 @@
+table:
+  name: pet
+  schema: public
+object_relationships:
+  - name: owner
+    using:
+      manual_configuration:
+        column_mapping:
+          owner_id: id
+        insertion_order: null
+        remote_table:
+          name: owner
+          schema: public
+insert_permissions:
+  - role: writer
+    permission:
+      check: {}
+      columns:
+        - adopted_at
+        - id
+        - inventoried_at
+        - name
+        - owner_id
+        - valid_time_range
+      validate_input:
+        definition:
+          forward_client_headers: true
+          headers: []
+          timeout: 10
+          url: '{{API_PETS}}/validate'
+        type: http
+select_permissions:
+  - role: writer
+    permission:
+      columns:
+        - adopted_at
+        - id
+        - inventoried_at
+        - name
+        - owner_id
+        - valid_time_range
+      filter: {}

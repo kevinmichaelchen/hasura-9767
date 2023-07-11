@@ -1,0 +1,24 @@
+table:
+  name: owner
+  schema: public
+insert_permissions:
+  - role: writer
+    permission:
+      check: {}
+      columns:
+        - name
+        - id
+      validate_input:
+        definition:
+          forward_client_headers: true
+          headers: []
+          timeout: 10
+          url: '{{API_PETS}}/validate'
+        type: http
+select_permissions:
+  - role: writer
+    permission:
+      columns:
+        - name
+        - id
+      filter: {}
