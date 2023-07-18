@@ -2,6 +2,12 @@
 
 This is a minimal reproduction of the issue described [here][gh-discussion].
 
+I was trying to perform a nested, idempotent upsert (as shown in the GraphQL
+mutation below), and it was failing.
+
+It turns out I was missing update permissions! Once added, things started 
+working.
+
 ## Getting started
 
 ### Start Remote Webhook
