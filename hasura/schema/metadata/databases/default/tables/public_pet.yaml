@@ -40,3 +40,15 @@ select_permissions:
         - owner_id
         - valid_time_range
       filter: {}
+update_permissions:
+  - role: writer
+    permission:
+      columns:
+        - name
+        - adopted_at
+        - inventoried_at
+        - valid_time_range
+        - id
+        - owner_id
+      filter: {}
+      check: {}
