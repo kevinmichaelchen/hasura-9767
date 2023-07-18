@@ -22,3 +22,11 @@ select_permissions:
         - name
         - id
       filter: {}
+update_permissions:
+  - role: writer
+    permission:
+      columns:
+        - name
+        - id
+      filter: {}
+      check: {}
